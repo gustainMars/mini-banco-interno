@@ -124,6 +124,9 @@ ADRs a escrever em `docs/adr/` (até o fim do M1 ou no M7, antes da tag `v0.1.0`
 - [ ] 0013 oxlint: padrão do template Nest 12, rápido, sem config. Alternativa ESLint + typescript-eslint (citado no plan.md). Custo: menos regras/plugins e regras com tipo limitadas.
 - [ ] 0014 Node 26 LTS: Node 22.14 quebrou (Nest CLI 12 exige ≥ 22.22.3; Jest `require(esm)` exige ≥ 24.9). Alternativa Node 24 (sem pacote no winget). Imagens `node:26-alpine`. Custo: versão mais nova, menos testada pelo ecossistema.
 
+Outras decisões em aberto:
+- [ ] Idioma dos títulos de teste (`describe`/`it`): hoje em português. Proposta: inglês dentro do código, citando o AC no título (`'AC-1.4: ...'`); pt-BR só em mensagens ao usuário final e na documentação. Gustavo adiou a decisão.
+
 ## 8. Comandos
 
 > Preencher conforme os apps forem criados.
