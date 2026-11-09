@@ -6,7 +6,7 @@ import { App } from 'supertest/types';
 import { AppModule } from '../src/app.module';
 import { configureApp } from '../src/app.setup';
 import { STATUS_CODES } from 'http';
-import { MENSAGEM_ERRO_INESPERADO as UNEXPECTED_ERROR_MESSAGE } from '../src/common/filters/all-exceptions.filter';
+import { UNEXPECTED_ERROR_MESSAGE } from '../src/common/filters/all-exceptions.filter';
 
 class FakeDto { 
     @IsString()
@@ -48,7 +48,7 @@ describe('Formato único de erro (e2e)', () => {
         await app.close();
     })
 
-    it('GEt /health retorna 200 com status ok', async () => {
+    it('GET /health retorna 200 com status ok', async () => {
         const res = await request(app.getHttpServer()).get('/health').expect(HttpStatus.OK);
 
         expect(res.body).toEqual({ status: 'ok' });

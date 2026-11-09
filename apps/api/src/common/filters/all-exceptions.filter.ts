@@ -8,7 +8,7 @@ type HttpErrorBody = {
     message?: string | string[];
 }
 
-export const MENSAGEM_ERRO_INESPERADO = 'Erro interno inesperado.';
+export const UNEXPECTED_ERROR_MESSAGE = 'Erro interno inesperado.';
 
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
@@ -23,7 +23,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
 
         let status: number = HttpStatus.INTERNAL_SERVER_ERROR;
         let error = 'Internal Server Error';
-        let message: string | string[] = MENSAGEM_ERRO_INESPERADO;
+        let message: string | string[] = UNEXPECTED_ERROR_MESSAGE;
 
         if (exception instanceof HttpException) {
             status = exception.getStatus();
