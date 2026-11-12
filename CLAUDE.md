@@ -136,6 +136,18 @@ copy .env.example .env      # primeira vez
 docker compose up -d        # sobe sqlserver, api, web
 ```
 
+**Docker / SQL Server** (rodar na raiz)
+```powershell
+docker compose up -d                 # sobe o SQL Server (volume sqlserver-data)
+docker compose ps                    # deve mostrar (healthy)
+docker compose logs sqlserver        # diagnóstico se o container cair
+docker compose down                  # para e remove o container; o volume (dados) fica
+docker compose down -v               # remove TAMBÉM o volume (apaga os bancos)
+docker compose exec sqlserver /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "<senha>" -C   # console SQL (GO executa)
+```
+- `sqlcmd` 18 exige `-C` (TrustServerCertificate) por causa do certificado autoassinado.
+- No Git Bash, usar `MSYS_NO_PATHCONV=1` antes de comandos com caminhos `/opt/...` (senão vira caminho do Windows).
+
 **apps/api** (rodar dentro de `apps/api`)
 ```powershell
 npm run start:dev           # API em http://localhost:3000 com watch
